@@ -24,7 +24,7 @@ export default function Section({
     <section {...rest}>
       {canAddSections && (
         <div className="title">
-          <h3>{title}</h3>
+          <h3>{title ? title : "Untitled"}</h3>
           <button
             className="toggleView"
             onClick={handleButtonClick}

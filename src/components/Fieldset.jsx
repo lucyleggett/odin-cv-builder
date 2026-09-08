@@ -44,7 +44,7 @@ export default function Fieldset({ heading, inputEleObj, canAddSections }) {
         />
       ))}
       {canAddSections && (
-        <button type="button" onClick={handleAddSection}>
+        <button className="add" type="button" onClick={handleAddSection}>
           Add
         </button>
       )}
