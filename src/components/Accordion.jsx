@@ -1,5 +1,4 @@
-import { useState } from "react";
-import Section from "./Section";
+import Fieldset from "./Fieldset";
 
 const contactObj = [
   {
@@ -20,13 +19,14 @@ const educationObj = [
   {
     label: "university",
     type: "text",
+    headLabel: true,
   },
   {
     label: "title of study",
     type: "text",
   },
   {
-    label: "date of study",
+    label: "graduated",
     type: "date",
   },
 ];
@@ -39,6 +39,7 @@ const workObj = [
   {
     label: "job title",
     type: "text",
+    headLabel: true,
   },
   {
     label: "key responsibilities",
@@ -55,28 +56,23 @@ const workObj = [
 ];
 
 export default function Accordion() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
-    <>
-      <Section
+    <main>
+      <Fieldset
         heading="General information"
         inputEleObj={contactObj}
-        isActive={activeIndex === 0}
-        onShow={() => setActiveIndex(activeIndex === 0 ? null: 0)}
+        canAddSections={false}
       />
-      <Section
+      <Fieldset
         heading="Education"
         inputEleObj={educationObj}
-        isActive={activeIndex === 1}
-        onShow={() => setActiveIndex(activeIndex === 1 ? null: 1)}
+        canAddSections={true}
       />
-      <Section
+      <Fieldset
         heading="Work experience"
         inputEleObj={workObj}
-        isActive={activeIndex === 2}
-        onShow={() => setActiveIndex(activeIndex === 2 ? null: 2)}
+        canAddSections={true}
       />
-    </>
+    </main>
   );
 }

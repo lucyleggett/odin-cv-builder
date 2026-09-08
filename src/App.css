@@ -1,0 +1,38 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  width: clamp(300px, 100%, 400px);
+  justify-content: center;
+  padding: 1em;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+fieldset {
+  display: grid;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+legend {
+  display: block;
+  float: left;
+  padding: 0;
+  font-size: 1.8em;
+}
+
+.title {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.title h3 {
+    
+}
