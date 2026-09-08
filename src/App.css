@@ -6,10 +6,18 @@
   padding: 1em;
 }
 
+h1,
+h2,
+h3,
+legend,
+label {
+  font-family: "Quicksand", sans-serif;
+}
+
 main {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.5em;
   width: 100%;
 }
 
@@ -17,8 +25,15 @@ fieldset {
   display: grid;
   flex-direction: column;
   margin: 0;
-  padding: 0;
+  padding: 1.5em;
   min-width: 0;
+  border: 1px solid white;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 legend {
@@ -29,10 +44,84 @@ legend {
 }
 
 .title {
-    display: grid;
-    grid-template-columns: 1fr auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
 }
 
-.title h3 {
-    
+.input-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-row {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+label {
+  font-size: 0.7em;
+  text-transform: uppercase;
+}
+
+input[id="key responsibilities"] {
+  min-height: 60px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  border: none;
+  border-bottom: 1px solid black;
+  height: 20px;
+}
+
+input:active,
+input:focus {
+  outline: none;
+  border-bottom: 2px solid rgb(54, 9, 111);
+}
+
+button.toggleView {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+button.toggleView .chevron {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  margin-bottom: 4px;
+
+  transform: rotate(-45deg);
+  transition: transform 0.4s ease;
+}
+
+button.toggleView .chevron.active {
+  transform: rotate(45deg);
+}
+
+button.toggleView .chevron.allow-hover:hover {
+  transform: rotate(45deg);
+}
+
+button.toggleView .chevron.active.allow-hover:hover {
+  transform: rotate(-45deg);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
 }

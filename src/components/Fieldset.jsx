@@ -36,6 +36,7 @@ export default function Fieldset({ heading, inputEleObj, canAddSections }) {
       {sections.map((section) => (
         <Section
           key={section.id}
+          data-id={section.id}
           inputEleObj={inputEleObj}
           isActive={section.isActive}
           canAddSections={canAddSections}

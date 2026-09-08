@@ -6,19 +6,35 @@ export default function Section({
   onShow,
   isActive,
   inputEleObj,
+  ...rest
 }) {
   const [title, setTitle] = useState("");
+  const [hasLeft, setHasLeft] = useState(true);
 
   function handleChange(event) {
     setTitle(event.target.value);
   }
 
+  function handleButtonClick() {
+    onShow();
+    setHasLeft(false);
+  }
+
   return (
-    <section>
+    <section {...rest}>
       {canAddSections && (
         <div className="title">
           <h3>{title}</h3>
-          <button onClick={onShow}>{isActive ? "Hide" : "Show"}</button>
+          <button
+            className="toggleView"
+            onClick={handleButtonClick}
+            onMouseLeave={() => setHasLeft(true)}
+          >
+            <span
+              className={`chevron ${isActive ? "active" : ""} ${hasLeft ? "allow-hover" : ""}`}
+            ></span>
+            <span className="sr-only">{isActive ? "Hide" : "Show"}</span>
+          </button>
         </div>
       )}
       {isActive && (
