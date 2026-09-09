@@ -4,27 +4,27 @@ import Input from "./Input";
 export default function Section({
   canAddSections,
   onShow,
+  onChange,
   isActive,
   inputEleObj,
+  values,
   ...rest
 }) {
-  const [title, setTitle] = useState("");
   const [hasLeft, setHasLeft] = useState(true);
 
-  function handleChange(event) {
-    setTitle(event.target.value);
-  }
+  const headLabel = inputEleObj.find(el => el.headLabel)?.label;
+  const title = (headLabel && values[headLabel]) || "✏️";
 
-  function handleButtonClick() {
+  const handleButtonClick = () => {
     onShow();
     setHasLeft(false);
-  }
+  };
 
   return (
     <section {...rest}>
       {canAddSections && (
         <div className="title">
-          <h3>{title ? title : "Untitled"}</h3>
+          <h3>{title}</h3>
           <button
             className="toggleView"
             onClick={handleButtonClick}
@@ -44,7 +44,8 @@ export default function Section({
               key={element.label + index}
               label={element.label}
               type={element.type}
-              onChange={element.headLabel ? handleChange : undefined}
+              value={values[element.label] || ""}
+              onChange={(e) => onChange(element.label, e.target.value)}
             />
           ))}
         </div>

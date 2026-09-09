@@ -2,7 +2,7 @@ function toSentenceCase(str) {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-export default function Input({ label, type, onChange }) {
+export default function Input({ label, type, value, onChange }) {
   const InputElement = type === "textarea" ? "textarea" : "input";
 
   return (
@@ -13,6 +13,7 @@ export default function Input({ label, type, onChange }) {
         rows={type !== "textarea" ? null : 4}
         id={label}
         name={label}
+        value={value}
         onChange={onChange}
       />
     </div>

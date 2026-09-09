@@ -1,7 +1,7 @@
 #root {
   display: flex;
   flex-direction: column;
-  width: clamp(300px, 100%, 400px);
+  width: clamp(300px, 100%, 500px);
   justify-content: center;
   padding: 1em;
 }
@@ -17,7 +17,7 @@ label {
 main {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  gap: 1em;
   width: 100%;
 }
 
@@ -31,9 +31,8 @@ fieldset {
   border-radius: 20px;
   background-color: white;
   box-shadow:
-    rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 legend {

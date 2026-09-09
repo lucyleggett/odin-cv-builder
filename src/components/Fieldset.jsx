@@ -1,15 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Section from "./Section";
 
 export default function Fieldset({ heading, inputEleObj, canAddSections }) {
-  const [sections, setSections] = useState([
-    { id: crypto.randomUUID(), isActive: true },
-  ]);
+  const storageKey = `fieldset-${heading}`;
+
+  const [sections, setSections] = useState(() => {
+    const saved = localStorage.getItem(storageKey);
+    if (saved) return JSON.parse(saved).sections;
+    return [{ id: crypto.randomUUID(), isActive: true, values: {} }];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(storageKey, JSON.stringify({ sections }));
+  }, [sections, storageKey]);
 
   const handleAddSection = () => {
     const newSection = {
       id: crypto.randomUUID(),
       isActive: true,
+      values: {},
     };
     setSections(
       [...sections, newSection].map((sec) =>
@@ -30,6 +39,16 @@ export default function Fieldset({ heading, inputEleObj, canAddSections }) {
     );
   };
 
+  const handleChange = (id, fieldName, value) => {
+    setSections(
+      sections.map((sec) =>
+        sec.id === id
+          ? { ...sec, values: { ...sec.values, [fieldName]: value } }
+          : sec,
+      ),
+    );
+  };
+
   return (
     <fieldset>
       <legend>{heading}</legend>
@@ -40,7 +59,11 @@ export default function Fieldset({ heading, inputEleObj, canAddSections }) {
           inputEleObj={inputEleObj}
           isActive={section.isActive}
           canAddSections={canAddSections}
+          values={section.values}
           onShow={() => handleToggleSection(section.id)}
+          onChange={(fieldName, value) => 
+            handleChange(section.id, fieldName, value)
+          }
         />
       ))}
       {canAddSections && (
