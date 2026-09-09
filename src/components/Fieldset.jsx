@@ -49,6 +49,15 @@ export default function Fieldset({ heading, inputEleObj, canAddSections }) {
     );
   };
 
+  const handleDeleteSection = (id) => {
+    setSections((prev) => {
+      const updated = prev.filter((sec) => sec.id !== id);
+      return updated.length > 0
+        ? updated
+        : [{ id: crypto.randomUUID(), isActive: true, values: {} }];
+    });
+  };
+
   return (
     <fieldset>
       <legend>{heading}</legend>
@@ -61,14 +70,16 @@ export default function Fieldset({ heading, inputEleObj, canAddSections }) {
           canAddSections={canAddSections}
           values={section.values}
           onShow={() => handleToggleSection(section.id)}
-          onChange={(fieldName, value) => 
+          onChange={(fieldName, value) =>
             handleChange(section.id, fieldName, value)
           }
+          onDelete={() => handleDeleteSection(section.id)}
         />
       ))}
       {canAddSections && (
         <button className="add" type="button" onClick={handleAddSection}>
-          Add
+          <div className="plus-icon"></div>
+          <p>Add more</p>
         </button>
       )}
     </fieldset>
