@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Section from "./Section";
 
 export default function Fieldset({ heading, inputEleObj, canAddSections }) {
-  const storageKey = `fieldset-${heading}`;
+  const storageKey = `fieldset-${heading.toLowerCase()}`;
 
   const [sections, setSections] = useState(() => {
     const saved = localStorage.getItem(storageKey);

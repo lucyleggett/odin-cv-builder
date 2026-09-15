@@ -1,8 +1,6 @@
 #root {
-  display: flex;
-  flex-direction: column;
-  width: clamp(300px, 100%, 500px);
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   padding: 1em;
 }
 
@@ -10,13 +8,16 @@ h1,
 h2,
 h3,
 legend,
-label {
+label,
+button.submit,
+button.add {
   font-family: "Quicksand", sans-serif;
 }
 
-main {
+form {
   display: flex;
   flex-direction: column;
+  width: clamp(300px, 40%, 500px);
   gap: 1em;
   width: 100%;
 }
@@ -35,15 +36,15 @@ fieldset {
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
+fieldset:nth-of-type(1) > legend {
+  margin-bottom: 0.6em;
+}
+
 legend {
   display: block;
   float: left;
   padding: 0;
   font-size: 1.8em;
-}
-
-section {
-  padding-bottom: 1em;
 }
 
 .title {
@@ -65,6 +66,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0.5em;
 }
 
 .input-row {
@@ -78,6 +80,8 @@ label {
 }
 
 input {
+  font-family: "Mandali", sans-serif;
+  font-size: 1em;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid rgb(200, 200, 200);
@@ -93,17 +97,12 @@ textarea {
   line-height: 1.3em;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"] {
-  height: 20px;
-}
-
 input[type="date"] {
   font-family: "Mandali", sans-serif;
   height: 18px;
   width: fit-content;
   margin-top: 0.4em;
+  margin-bottom: 1em;
   outline: none;
   padding: 0.2em 0.4em;
 }
@@ -129,7 +128,6 @@ button.add {
 }
 
 button.add p {
-  font-family: "Quicksand", sans-serif;
   white-space: nowrap;
 }
 
@@ -232,3 +230,20 @@ button.toggleView .chevron.active.allow-hover:hover {
   transform: scale(1.1);
   --thickness: 3px;
 }
+/* 
+button.submit {
+  font-size: 16px;
+  color: white;
+  background-color: rgb(78, 77, 77);
+  width: fit-content;
+  padding: 0.25em 0.5em 0.4em 0.5em;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.33);
+  align-self: center;
+  transition: all 0.3s ease-in-out;
+}
+
+button.submit:hover {
+  transform: translate(1px, -2px);
+  background-color: black;
+} */

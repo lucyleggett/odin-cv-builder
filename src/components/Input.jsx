@@ -1,6 +1,4 @@
-function toSentenceCase(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-}
+import { toSentenceCase } from "../utils";
 
 export default function Input({ label, type, value, onChange }) {
   const InputElement = type === "textarea" ? "textarea" : "input";

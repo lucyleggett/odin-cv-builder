@@ -1,13 +1,15 @@
-import { useState } from "react";
 import "./App.css";
-import Section from "./components/Section";
+import Document from "./components/Document";
 import Accordion from "./components/Accordion";
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
-    <Accordion/>
+    <>
+      <form action="" method="get">
+        <Accordion />
+      </form>
+      <Document />
+    </>
   );
 }
 
