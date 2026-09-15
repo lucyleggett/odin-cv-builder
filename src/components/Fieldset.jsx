@@ -1,18 +1,6 @@
-import { useState, useEffect } from "react";
 import Section from "./Section";
 
-export default function Fieldset({ heading, inputEleObj, canAddSections }) {
-  const storageKey = `fieldset-${heading.toLowerCase()}`;
-
-  const [sections, setSections] = useState(() => {
-    const saved = localStorage.getItem(storageKey);
-    if (saved) return JSON.parse(saved).sections;
-    return [{ id: crypto.randomUUID(), isActive: true, values: {} }];
-  });
-
-  useEffect(() => {
-    localStorage.setItem(storageKey, JSON.stringify({ sections }));
-  }, [sections, storageKey]);
+export default function Fieldset({ heading, inputEleObj, canAddSections, sections, setSections }) {
 
   const handleAddSection = () => {
     const newSection = {

@@ -230,6 +230,10 @@ button.toggleView .chevron.active.allow-hover:hover {
   transform: scale(1.1);
   --thickness: 3px;
 }
+
+.active {
+  display: hidden;
+}
 /* 
 button.submit {
   font-size: 16px;

@@ -25,7 +25,7 @@ export default function Section({
     <section {...rest}>
       {canAddSections && (
         <div className="title">
-          <h3>{title}</h3>
+          {!isActive && <h3>{title}</h3>}
           <button
             type="button"
             className="toggleView"
