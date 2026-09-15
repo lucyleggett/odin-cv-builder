@@ -271,7 +271,7 @@ button.toggleView .chevron.active.allow-hover:hover {
   gap: 30px;
   flex: 1 1 550px;
   max-width: 800px;
-  aspect-ratio: 1 / 1.414;
+  padding-bottom: 2em;
   background-color: white;
   box-shadow:
     rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
@@ -335,6 +335,10 @@ button.toggleView .chevron.active.allow-hover:hover {
 .entry p {
   padding: 0;
   margin: 0;
+}
+
+.entry h3 {
+  padding-top: 0.2em;
 }
 
 .education.entry,

@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Document from "./components/Document";
 import Accordion from "./components/Accordion";
+import { exampleData } from "./utils";
 
 function useSections(heading) {
   const storageKey = `fieldset-${heading}`;
@@ -25,7 +26,7 @@ export default function App() {
   );
   const [educationSections, setEducationSections] = useSections("education");
   const [workSections, setWorkSections] = useSections("work experience");
-  
+
   const clearData = () => {
     const empty = [{ id: crypto.randomUUID(), isActive: true, values: {} }];
     setContactSections(empty);
@@ -33,9 +34,22 @@ export default function App() {
     setWorkSections(empty);
   };
 
+  const loadExampleData = () => {
+    setContactSections(
+      JSON.parse(exampleData["fieldset-general information"]).sections,
+    );
+    setEducationSections(
+      JSON.parse(exampleData["fieldset-education"]).sections,
+    );
+    setWorkSections(
+      JSON.parse(exampleData["fieldset-work experience"]).sections,
+    );
+  };
+
   return (
     <>
       <Accordion
+        loadExampleData={loadExampleData}
         clearData={clearData}
         contactSections={contactSections}
         setContactSections={setContactSections}
