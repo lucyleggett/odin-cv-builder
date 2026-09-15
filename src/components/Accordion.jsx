@@ -10,7 +10,7 @@ export default function Accordion({
   setWorkSections,
 }) {
   return (
-    <>
+    <form action="get">
       <Fieldset
         heading="General information"
         inputEleObj={contactObj}
@@ -32,6 +32,6 @@ export default function Accordion({
         sections={workSections}
         setSections={setWorkSections}
       />
-    </>
+    </form>
   );
 }
