@@ -25,10 +25,18 @@ export default function App() {
   );
   const [educationSections, setEducationSections] = useSections("education");
   const [workSections, setWorkSections] = useSections("work experience");
+  
+  const clearData = () => {
+    const empty = [{ id: crypto.randomUUID(), isActive: true, values: {} }];
+    setContactSections(empty);
+    setEducationSections(empty);
+    setWorkSections(empty);
+  };
 
   return (
     <>
       <Accordion
+        clearData={clearData}
         contactSections={contactSections}
         setContactSections={setContactSections}
         educationSections={educationSections}

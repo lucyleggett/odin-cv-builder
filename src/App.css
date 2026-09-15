@@ -14,7 +14,9 @@ h3,
 legend,
 label,
 button.submit,
-button.add {
+button.add,
+button.clear,
+button.example {
   font-family: "Quicksand", sans-serif;
 }
 
@@ -23,6 +25,32 @@ form {
   flex-direction: column;
   gap: 1em;
   width: clamp(350px, 30%, 420px);
+}
+
+.buttons {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+button.clear,
+button.example {
+  background-color: rgb(244, 84, 167);
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: transform 0.2s ease;
+  font-weight: 500;
+}
+
+button.clear {
+  background-color: rgb(239, 143, 193);
+}
+
+button.clear:hover,
+button.example:hover {
+  transform: translate(1px, -2px);
 }
 
 fieldset {

@@ -2,6 +2,7 @@ import Fieldset from "./Fieldset";
 import { contactObj, educationObj, workObj } from "../utils";
 
 export default function Accordion({
+  clearData,
   contactSections,
   setContactSections,
   educationSections,
@@ -11,6 +12,12 @@ export default function Accordion({
 }) {
   return (
     <form action="get">
+      <div className="buttons">
+        <button className="example">Load example CV</button>
+        <button className="clear" onClick={clearData}>
+          Clear CV data
+        </button>
+      </div>
       <Fieldset
         heading="General information"
         inputEleObj={contactObj}

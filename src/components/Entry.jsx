@@ -13,7 +13,7 @@ export default function Entry({ values, heading }) {
   if (heading === "general information") {
     return (
       <div className="entry general">
-        <h1>{values["name"]}</h1>
+        <h1>{values["name"] || "Your CV"}</h1>
         <div className="contact-info">
           <div className="email info">
             <i className="fa-solid fa-envelope"></i>
