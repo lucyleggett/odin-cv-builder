@@ -7,8 +7,10 @@ export default function Document({
 }) {
   return (
     <div className="cv-mockup">
-      <div className="header divider">
-        <Block heading="general information" sections={contactSections}></Block>
+      <div className="banner">
+        <div className="header divider">
+          <Block heading="general information" sections={contactSections}></Block>
+        </div>
       </div>
       <div className="education divider">
         <h2>Education</h2>

@@ -11,6 +11,10 @@ export const contactObj = [
     label: "phone number",
     type: "tel",
   },
+  {
+    label: "location",
+    type: "text",
+  },
 ];
 
 export const educationObj = [
@@ -24,7 +28,11 @@ export const educationObj = [
     type: "text",
   },
   {
-    label: "graduated",
+    label: "start date",
+    type: "date",
+  },
+  {
+    label: "end date",
     type: "date",
   },
 ];

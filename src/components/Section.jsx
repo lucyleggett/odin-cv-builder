@@ -14,7 +14,7 @@ export default function Section({
   const [hasLeft, setHasLeft] = useState(true);
 
   const headLabel = inputEleObj.find((el) => el.headLabel)?.label;
-  const title = (headLabel && values[headLabel]) || "Incomplete";
+  const title = (headLabel && values[headLabel]) || "";
 
   const handleButtonClick = () => {
     onShow();
@@ -25,7 +25,7 @@ export default function Section({
     <section {...rest}>
       {canAddSections && (
         <div className="title">
-          {!isActive && <h3>{title}</h3>}
+          {(!isActive && title !== "") && <h3>{title}</h3>}
           <button
             type="button"
             className="toggleView"

@@ -1,7 +1,11 @@
 #root {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  padding: 1em;
+  display: flex;
+  justify-content: safe center;
+  padding: 2em;
+  gap: 2em;
+  min-width: 950px;
+  width: 100%;
+  overflow: scroll;
 }
 
 h1,
@@ -17,9 +21,8 @@ button.add {
 form {
   display: flex;
   flex-direction: column;
-  width: clamp(300px, 40%, 500px);
   gap: 1em;
-  width: 100%;
+  width: clamp(350px, 30%, 420px);
 }
 
 fieldset {
@@ -45,6 +48,7 @@ legend {
   float: left;
   padding: 0;
   font-size: 1.8em;
+  margin-bottom: 0.5em;
 }
 
 .title {
@@ -53,13 +57,16 @@ legend {
   grid-template-rows: 1fr;
   justify-items: left;
   align-items: center;
+  padding: 0.3em 0;
 }
 
-h3 {
+form h3 {
+  font-size: 16px;
   width: fit-content;
   padding: 0.25em 0.5em 0.4em 0.5em;
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.33);
+  margin: 0;
 }
 
 .input-cluster {
@@ -133,7 +140,6 @@ button.add p {
 
 button.delete {
   width: 20px;
-  height: 100%;
   padding: 0;
   margin-left: 2em;
 }
@@ -231,23 +237,88 @@ button.toggleView .chevron.active.allow-hover:hover {
   --thickness: 3px;
 }
 
-.active {
-  display: hidden;
-}
-/* 
-button.submit {
-  font-size: 16px;
-  color: white;
-  background-color: rgb(78, 77, 77);
-  width: fit-content;
-  padding: 0.25em 0.5em 0.4em 0.5em;
-  border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.33);
-  align-self: center;
-  transition: all 0.3s ease-in-out;
+.cv-mockup {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 1 1 550px;
+  max-width: 800px;
+  aspect-ratio: 1 / 1.414;
+  background-color: white;
+  box-shadow:
+    rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
-button.submit:hover {
-  transform: translate(1px, -2px);
-  background-color: black;
-} */
+.banner {
+  background-color: rgb(8, 104, 220);
+}
+
+.divider {
+  padding: 0 30px;
+}
+
+.header {
+  padding: 20px 30px 30px 30px;
+}
+
+.divider h2 {
+  text-align: center;
+  margin-top: 0;
+  background-color: rgba(8, 103, 220, 0.201);
+  padding: 0.2em 0;
+  border-radius: 10px;
+}
+
+.general {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.general h1 {
+  font-size: 2.5em;
+  margin: 0.5em;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 15px;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.entry h2,
+.entry h3,
+.entry p {
+  padding: 0;
+  margin: 0;
+}
+
+.education.entry,
+.work.entry {
+  display: grid;
+  grid-template-columns: auto 3fr;
+  gap: 1.5em;
+  align-items: top;
+}
+
+p.description {
+  white-space: pre-wrap;
+  font-size: 14px;
+  font-style: italic;
+}
