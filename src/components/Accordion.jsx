@@ -14,8 +14,10 @@ export default function Accordion({
   return (
     <form action="get">
       <div className="buttons">
-        <button className="example" onClick={loadExampleData}>Load example CV</button>
-        <button className="clear" onClick={clearData}>
+        <button type="button" className="example" onClick={loadExampleData}>
+          Load example CV
+        </button>
+        <button type="button" className="clear" onClick={clearData}>
           Clear CV data
         </button>
       </div>
