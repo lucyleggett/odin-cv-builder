@@ -49,27 +49,29 @@ export default function Fieldset({ heading, inputEleObj, canAddSections, section
   return (
     <fieldset>
       <legend>{heading}</legend>
-      {sections.map((section) => (
-        <Section
-          key={section.id}
-          data-id={section.id}
-          inputEleObj={inputEleObj}
-          isActive={section.isActive}
-          canAddSections={canAddSections}
-          values={section.values}
-          onShow={() => handleToggleSection(section.id)}
-          onChange={(fieldName, value) =>
-            handleChange(section.id, fieldName, value)
-          }
-          onDelete={() => handleDeleteSection(section.id)}
-        />
-      ))}
-      {canAddSections && (
-        <button className="add" type="button" onClick={handleAddSection}>
-          <div className="plus-icon"></div>
-          <p>Add more</p>
-        </button>
-      )}
+      <div className="fieldset-flex-contents">
+        {sections.map((section) => (
+          <Section
+            key={section.id}
+            data-id={section.id}
+            inputEleObj={inputEleObj}
+            isActive={section.isActive}
+            canAddSections={canAddSections}
+            values={section.values}
+            onShow={() => handleToggleSection(section.id)}
+            onChange={(fieldName, value) =>
+              handleChange(section.id, fieldName, value)
+            }
+            onDelete={() => handleDeleteSection(section.id)}
+          />
+        ))}
+        {canAddSections && (
+          <button className="add" type="button" onClick={handleAddSection}>
+            <div className="plus-icon"></div>
+            <p>Add more</p>
+          </button>
+        )}
+      </div>
     </fieldset>
   );
 }

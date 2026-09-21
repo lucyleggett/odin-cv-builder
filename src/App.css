@@ -3,7 +3,7 @@
   --clr-primary: rgb(8, 104, 220);
   --clr-primary-translucent: rgba(8, 103, 220, 0.201);
   --clr-accent: rgb(244, 84, 167);
-  --clr-secondary: rgb(239, 143, 193);
+  --clr-secondary: rgb(232, 58, 113);
 
   --ff-quicksand: "Quicksand", sans-serif;
   --ff-mandali: "Mandali", sans-serif;
@@ -13,14 +13,13 @@
   --btn-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-#root {
+#root, body {
   display: flex;
   justify-content: safe center;
   padding: 2em;
   gap: 2em;
   min-width: 950px;
   width: 100%;
-  overflow: scroll;
 }
 
 h1,
@@ -56,7 +55,9 @@ button.example {
   border-radius: 10px;
   box-shadow: var(--btn-box-shadow);
   transition: transform 0.2s ease;
+  font-size: 16px;
   font-weight: 500;
+  color: var(--clr-white);
 }
 
 button.clear {
@@ -69,8 +70,6 @@ button.example:hover {
 }
 
 fieldset {
-  display: flex;
-  flex-direction: column;
   margin: 0;
   padding: 1.5em;
   min-width: 0;
@@ -80,15 +79,20 @@ fieldset {
   box-shadow: var(--primary-box-shadow);
 }
 
+.fieldset-flex-contents {
+  display: flex;
+  flex-direction: column;
+}
+
 fieldset:nth-of-type(1) > legend {
   margin-bottom: 0.6em;
 }
 
 legend {
   display: block;
-  float: left;
   padding: 0;
   font-size: 1.8em;
+  transform: translateY(100%);
   margin-bottom: 0.5em;
 }
 
