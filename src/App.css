@@ -70,8 +70,10 @@ button.example:hover {
 }
 
 fieldset {
+  display: flow-root;
   margin: 0;
   padding: 1.5em;
+  height: auto;
   min-width: 0;
   border: 1px solid var(--clr-white);
   border-radius: 20px;
